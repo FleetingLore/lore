@@ -17,7 +17,7 @@
 /// 表示 LIR 中的单行内容类型。
 ///
 /// 使用生命周期 `'f` 来借用原始字符串切片
-/// 
+///
 /// ```
 /// use crate::lir::content::{Content, parse_content};
 ///
@@ -46,7 +46,7 @@ impl<'f> std::fmt::Display for Content<'f> {
 }
 
 /// 解析字符串，返回一个 `Content` 数据对象。
-/// 
+///
 /// 对于 `"+ [ * ]"`，返回 `Content::Domain("[ * ]")`。
 /// 其他所有情况，即对于 `"[ * ]"`，返回 `Content::Element("[ * ]")`。
 ///
@@ -57,10 +57,10 @@ impl<'f> std::fmt::Display for Content<'f> {
 /// assert!(matches!(parse_content("+ [ * ]"), Content::Domain("[ * ]")));
 /// assert!(matches!(parse_content("+[ *content ]"), Content::Element("+[ * content ]")));
 /// ```
-/// 
+///
 /// 实际上，这个函数期望接收已经去除前导空格的内容。
-/// 即先由 [`lore::lir::line::parse_line`] 计算缩进，然后将剩余部分作为内容，传递给此函数。
-/// 
+/// 即先由 `lore::lir::line::parse_line` 计算缩进，然后将剩余部分作为内容，传递给此函数。
+///
 pub fn parse_content(content: &str) -> Content<'_> {
     if let Some(rest) = content.strip_prefix("+ ") {
         Content::Domain(rest)
@@ -113,7 +113,7 @@ mod tests {
             _ => panic!("Expected Domain variant"),
         }
     }
-    
+
     // `+` 后未打空格则识别为要素
     #[test]
     fn test_domain_content_but_no_space_after_plus() {

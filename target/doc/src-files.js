@@ -1,2 +1,2 @@
-createSrcSidebar('[["lore_basic",["",[["lir",[],["content.rs","line.rs","mod.rs","root.rs"]]],["main.rs"]]]]');
-//{"start":19,"fragment_lengths":[88]}
+createSrcSidebar('[["lore",["",[["lir",[],["content.rs","line.rs","mod.rs","node.rs","root.rs"]]],["lib.rs"]]],["lore_basic",["",[["lir",[],["content.rs","line.rs","mod.rs","root.rs"]]],["main.rs"]]]]');
+//{"start":19,"fragment_lengths":[91,89]}
