@@ -3,13 +3,13 @@
 //! 根是最高层的领域。
 //!
 //! ```text
-//! 输入:
+//! 输入 lore 文本
 //! root
 //!   + domain
 //!     nested
 //!   another
 //!
-//! 输出:
+//! 输出 rust 数据对象
 //! Root {
 //!   data: [
 //!     Line { indent: 0, content: Element("root") },
@@ -27,7 +27,6 @@ use super::line::Line;
 ///
 /// `Root` 是 LIR 解析的最终结果，它包含了文档中所有行的结构化信息。
 /// 通过行的缩进级别，可以推断出文档的层次结构关系。
-///
 ///
 /// ```
 /// use crate::lir::parse_root;

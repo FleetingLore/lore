@@ -9,9 +9,9 @@
 //! ```text
 //! [ * content ]            -> Element("[ * content ]")
 //! + [ * content ]          -> Domain("+ [ * content ]")
-//! +[ * content ]           -> Element("+[ * content ]")     // 无空格。
-//! +                        -> Element("+")          // 无空格和内容。
-//! +                        -> Domain("")            // 有空格但无内容。
+//! +[ * content ]           -> Element("+[ * content ]")     // `+` 后无空格。
+//! +                        -> Element("+")                  // `+` 后无空格和内容。
+//! +                        -> Domain("")                    // `+` 后有空格但无内容。
 //! ```
 
 /// 表示 LIR 中的单行内容类型。
