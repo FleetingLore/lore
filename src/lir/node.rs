@@ -1,1 +1,7 @@
-// 呵呵
+use std::cell::RefCell;
+use std::rc::Rc;
+
+pub struct Node<'f> {
+    content: crate::lir::content::Content<'f>,
+    domain: Option<Rc<RefCell<Node<'f>>>>,
+}

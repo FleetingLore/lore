@@ -12,6 +12,7 @@
 //! +[ * content ]           -> Element("+[ * content ]")     // `+` 后无空格。
 //! +                        -> Element("+")                  // `+` 后无空格和内容。
 //! +                        -> Domain("")                    // `+` 后有空格但无内容。
+//!                          -> None                          // 空行，域可能会在空行结束
 //! ```
 
 /// 表示 LIR 中的单行内容类型。
@@ -32,7 +33,10 @@ pub enum Content<'f> {
     Element(&'f str),
 
     /// 领域，以 "+ " 前缀标识
-    Domain(&'f str)
+    Domain(&'f str),
+
+    /// 空行
+    None()
 }
 
 /// 为了便于测试，为 `Content<'f>` 实现 `Display`。
@@ -40,7 +44,8 @@ impl<'f> std::fmt::Display for Content<'f> {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match &self {
             Content::Element(tokens) => write!(f, "{}", tokens),
-            Content::Domain(tokens) => write!(f, "+ {}", tokens)
+            Content::Domain(tokens) => write!(f, "+ {}", tokens),
+            Content::None() => write!(f, "")
         }
     }
 }
@@ -62,6 +67,10 @@ impl<'f> std::fmt::Display for Content<'f> {
 /// 即先由 `lore::lir::line::parse_line` 计算缩进，然后将剩余部分作为内容，传递给此函数。
 ///
 pub fn parse_content(content: &str) -> Content<'_> {
+    if content.is_empty() {
+        return Content::None();
+    }
+
     if let Some(rest) = content.strip_prefix("+ ") {
         Content::Domain(rest)
     } else {
@@ -99,8 +108,8 @@ mod tests {
     fn test_empty_string() {
         let content = parse_content("");
         match content {
-            Content::Element(text) => assert_eq!(text, ""),
-            _ => panic!("Expected Element variant"),
+            Content::None() => (),
+            _ => panic!("Expected None variant"),
         }
     }
 
@@ -129,8 +138,10 @@ mod tests {
     fn test_display_implementation() {
         let element = Content::Element("test element");
         let domain = Content::Domain("test domain");
+        let none = Content::None();
 
         assert_eq!(format!("{}", element), "test element");
         assert_eq!(format!("{}", domain), "+ test domain");
+        assert_eq!(format!("{}", none), "");
     }
 }
