@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["main","read_and_parse_file"],"mod":["lir"],"struct":["File"]};
