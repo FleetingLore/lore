@@ -19,7 +19,7 @@ fn main() {
 
         let input = input.as_str().trim();
 
-        let root = lore::read_and_parse_file(input);
+        let root = lore_ir::read_and_parse_file(input);
         br();
         println!("{}", root);
         br();

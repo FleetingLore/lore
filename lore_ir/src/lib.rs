@@ -2,14 +2,12 @@ mod data;
 mod parser;
 mod display;
 
+use crate::data::root::Root;
+use crate::parser::root::parse_root;
+
 use std::fs;
 use std::path::Path;
 
-// Lore IR 是被解析的 Lore 代码的 rust 数据对象
-pub mod lir;
-use lir::root::*;
-
-/// 文件类，作为原始数据的所有者
 pub struct File {
     path: String,
     content: Vec<String>,
@@ -18,9 +16,10 @@ pub struct File {
 impl File {
     // 获取文件数据
     pub fn new(file_path: &str) -> Self {
-        // 文件不存在
+        // 如果文件不存在
         if !Path::new(file_path).exists() {
-            panic!("文件不存在: {}", file_path);
+            println!("文件不存在: {}", file_path);
+            return File { path: "".to_string(), content: vec![] }
         }
 
         // 读取文件
@@ -66,21 +65,5 @@ pub fn read_and_parse_file<'f>(file_path: &str) -> Root<'f> {
 impl std::fmt::Display for File {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         write!(f, "File: {} ({} lines)", self.path, self.content.len())
-    }
-}
-
-
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
     }
 }

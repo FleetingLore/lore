@@ -1,0 +1,4 @@
+# 根目录 Cargo.toml（虚拟清单）
+[workspace]
+members = ["lore_ir"]
+resolver = "3"

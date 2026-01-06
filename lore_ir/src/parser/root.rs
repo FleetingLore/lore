@@ -1,8 +1,11 @@
+use crate::parser::line::parse_line;
+use crate::data::root::Root;
+
 pub fn parse_root(raw_lines: Vec<&str>) -> Root<'_> {
-    let data = raw_lines
+    let indented_lines = raw_lines
         .into_iter()
         .map(parse_line)
         .collect();
 
-    Root { data }
+    Root { indented_lines }
 }
