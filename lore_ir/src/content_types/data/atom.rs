@@ -1,5 +1,5 @@
-use crate::content_types::data::Content;
-
-pub(crate) struct ReferenceContent {}
+pub(crate) struct AtomContent<'lc> {
+    meta: &'lc str,
+}
 
 

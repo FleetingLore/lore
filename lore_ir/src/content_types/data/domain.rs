@@ -1,6 +1,6 @@
-use crate::content_types::data::Content;
-
 #[cfg(feature = "domain")]
-pub(crate) struct DomainContent {}
+pub(crate) struct DomainContent<'lc> {
+    meta: &'lc str,
+}
 
 

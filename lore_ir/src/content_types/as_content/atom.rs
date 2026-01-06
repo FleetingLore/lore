@@ -1,3 +1,6 @@
+use crate::content_types::data::atom::AtomContent;
 use crate::content_types::data::Content;
-use crate::content_types::data::atom::ReferenceContent;
-impl Content for ReferenceContent {}
+
+impl<'lc> Content for AtomContent<'lc> {
+    
+}

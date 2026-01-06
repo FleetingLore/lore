@@ -1,9 +1,9 @@
-use crate::content_types::data::Content;
+use std::fmt::{Display, Formatter};
+use crate::content_types::data::reference::ReferenceContent;
 
 #[cfg(feature = "reference")]
-struct ReferenceContent {}
-
-#[cfg(feature = "reference")]
-impl Content for ReferenceContent {
-    
+impl<'lc> Display for ReferenceContent<'lc> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
 }

@@ -1,9 +1,9 @@
-use crate::content_types::data::Content;
+use std::fmt::{Display, Formatter};
+use crate::content_types::data::domain::DomainContent;
 
 #[cfg(feature = "domain")]
-struct DomainContent {}
-
-#[cfg(feature = "domain")]
-impl Content for DomainContent {
-    
+impl<'lc> Display for DomainContent<'lc> {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        todo!()
+    }
 }
