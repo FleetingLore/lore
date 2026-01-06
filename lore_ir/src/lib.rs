@@ -1,9 +1,8 @@
-mod data;
-mod parser;
-mod display;
+mod types;
+mod structure;
 
-use crate::data::root::Root;
-use crate::parser::root::parse_root;
+use structure::data::root::Root;
+use structure::parser::root::parse_root;
 
 use std::fs;
 use std::path::Path;
