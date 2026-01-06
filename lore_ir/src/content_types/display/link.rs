@@ -4,6 +4,6 @@ use crate::content_types::data::link::LinkContent;
 #[cfg(feature = "link")]
 impl<'lc> Display for LinkContent<'lc> {
     fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        todo!()
+        write!(f, "{} = {}", &self.meta, &self.value)
     }
 }

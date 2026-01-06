@@ -1,5 +1,5 @@
 pub(crate) struct AtomContent<'lc> {
-    meta: &'lc str,
+    pub(crate) meta: &'lc str,
 }
 
 
