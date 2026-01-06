@@ -1,5 +1,6 @@
 mod types;
 mod structure;
+mod content_types;
 
 use structure::data::root::Root;
 use structure::parser::root::parse_root;
