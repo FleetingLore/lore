@@ -1,3 +1,13 @@
-# Lore
+Lore 语言是表示信息分布与细节构成的一个方法集。
 
-输入的东西是文件路径 `examples/basic.lore`。
+先根据一定的配置，将 `*.lore` 转化为 rust 语言的数据对象，然后转化为具体实现。
+
+# LoreIR
+
+lore/lore_ir 是数据读取模块。
+
+每两个空格是一级缩进。
+
+运行测试文件时，在控制台输入的信息是默认测试文件路径 `examples/basic.lore`。
+
+
