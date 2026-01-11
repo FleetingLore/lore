@@ -1,6 +1,8 @@
+use crate::content_types::as_content::Content;
 use crate::content_types::data::atom::AtomContent;
-use crate::content_types::data::Content;
 
-impl<'lc> Content for AtomContent<'lc> {
-    
+impl<'lc, 'f> Content<'f> for AtomContent<'lc> {
+    fn check(&'lc self) -> AtomContent<'lc> {
+        todo!()
+    }
 }

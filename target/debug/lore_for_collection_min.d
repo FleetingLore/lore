@@ -1,0 +1,1 @@
+D:\local\fleeting\code\lore\target\debug\lore_for_collection_min.exe: D:\local\fleeting\code\lore\lore_for_collection_min\src\input_lore.rs D:\local\fleeting\code\lore\lore_for_collection_min\src\line.rs D:\local\fleeting\code\lore\lore_for_collection_min\src\main.rs D:\local\fleeting\code\lore\lore_for_collection_min\src\parser.rs

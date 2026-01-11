@@ -1,2 +1,11 @@
-[ * ]
-  [ * ]
++ root
+  + test domain
+    test link = https://www.example.com
+
+  amid line
+
+  + collections
+    bilibili = https://www.bilibili.com
+    zhihu = https://www.zhihu.com
+
+  element
