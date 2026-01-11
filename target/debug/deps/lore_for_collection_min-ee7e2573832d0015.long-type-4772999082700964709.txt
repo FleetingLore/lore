@@ -1,0 +1,1 @@
+Map<Filter<std::str::Split<'_, char>, {closure@lore_for_collection_min\src\parser.rs:5:17: 5:23}>, fn(String) -> String {parse_line}>

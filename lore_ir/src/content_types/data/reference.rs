@@ -1,4 +1,4 @@
 #[cfg(feature = "reference")]
 pub(crate) struct ReferenceContent<'lc> {
-    meta: &'lc str,
+    pub(crate) meta: &'lc str,
 }
