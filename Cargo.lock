@@ -11,5 +11,9 @@ name = "lore_for_collection_min"
 version = "0.1.0"
 
 [[package]]
+name = "lore_for_collection_node"
+version = "0.1.0"
+
+[[package]]
 name = "lore_ir"
 version = "0.1.0"

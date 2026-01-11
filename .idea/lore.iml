@@ -7,6 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lore_ir/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lore_for_collection/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lore_for_collection_min/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lore_for_collection_node/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/lore_ir/target" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
