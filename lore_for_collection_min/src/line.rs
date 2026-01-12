@@ -1,23 +1,12 @@
-use std::fmt::{Display, Formatter};
-
+// 行的数据分为缩进和行内容
 pub struct Line {
     pub indent: usize,
     pub content: Content,
 }
 
+// 行内容有三种
 pub enum Content {
-    Atom(String),
-    Link(String, String),
-    Domain(String)
-}
-
-impl Display for Line {
-    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
-        let spaces = "  ".repeat(self.indent);
-        match &self.content {
-            Content::Atom(atom) => write!(f, "{}{}", spaces, atom),
-            Content::Link(key, value) => write!(f, "{}{} = {}", spaces, key, value),
-            Content::Domain(domain) => write!(f, "{}+ {}", spaces, domain)
-        }
-    }
+    Atom(String), // 原子
+    Link(String, String), // 链接
+    Domain(String) // 领域
 }

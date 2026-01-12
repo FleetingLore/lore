@@ -2,6 +2,7 @@ use std::fs;
 use std::path::Path;
 use crate::line::{Content, Line};
 
+// 生成 html 文件
 pub fn output_html(title: &str, lines: Vec<Line>, path: &Path) {
     let mut html = String::new();
 
@@ -35,10 +36,14 @@ pub fn output_html(title: &str, lines: Vec<Line>, path: &Path) {
     fs::write(path, html).unwrap();
 }
 
+// 以行为单位的转换
 fn line_to_html(line: &Line) -> String {
+    // 缩进参数
     let margin_left = line.indent * 20;
 
+    // 构建返回标签
     match &line.content {
+        // 原子
         Content::Atom(atom) => {
             format!(
                 r#"<p style="margin-left: {}px">{}</p>"#,
@@ -46,6 +51,8 @@ fn line_to_html(line: &Line) -> String {
                 atom
             )
         },
+
+        // 链接
         Content::Link(key, value) => {
             format!(
                 r#"<p style="margin-left: {}px"><a href="{}" target="_blank">{}</a></p>"#,
@@ -54,6 +61,8 @@ fn line_to_html(line: &Line) -> String {
                 key
             )
         },
+
+        // 领域
         Content::Domain(domain) => {
             format!(
                 r#"<p style="margin-left: {}px"><strong>+ {}</strong></p>"#,

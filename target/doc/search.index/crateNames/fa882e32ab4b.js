@@ -1,0 +1,1 @@
+rd_("Aglore_for_collection_min")
