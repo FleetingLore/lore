@@ -1,1 +1,0 @@
-window.SIDEBAR_ITEMS = {"fn":["input_lore_file","parse"]};

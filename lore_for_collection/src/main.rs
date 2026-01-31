@@ -1,28 +1,25 @@
-use std::{env, fs};
-use lore_for_collection::input_lore::{extract_filename, input_lore_file_with_file_name};
-use lore_for_collection::output_html::generate_html;
-use lore_for_collection::parse::{into_nodes, parse_lines};
+mod line;
+mod parser;
+mod input_lore;
+mod output;
+
+use std::env;
+use std::path::Path;
 
 fn main() {
+    // 接收命令行参数
     let args: Vec<String> = env::args().collect();
-    if args.len() < 3 {
-        eprintln!("Usage: {} <input_lore_file> <output_html_file>", args[0]);
-        return;
-    }
 
-    let input_lore_file_path: &str = &args[1];
-    let output_html_file_path: &str = &args[2];
+    // 从命令行参数解析输入文件路径和输出文件路径
+    let input_path = Path::new(&args[1]);
+    let output_path = Path::new(&args[2]);
 
-    let input_lore_file: String = input_lore_file_with_file_name(input_lore_file_path);
+    // 读取文件
+    let content: String = input_lore::input_lore_file(input_path);
 
-    let lines = parse_lines(input_lore_file.as_str());
-    let nodes = into_nodes(&lines);
-    let html = generate_html(nodes, extract_filename(output_html_file_path));
+    // 解析文件
+    let target = input_lore::parse(content);
 
-    if let Err(e) = fs::write(output_html_file_path, html) {
-        eprintln!("Error writing to file {}: {}", output_html_file_path, e);
-        return;
-    }
-
-    println!("done from {} to {}", input_lore_file_path, output_html_file_path);
+    // 生成 html 目标文件
+    output::output_html("Test", target, output_path);
 }

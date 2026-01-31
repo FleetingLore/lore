@@ -1,1 +1,0 @@
-Map<Filter<std::str::Split<'_, char>, {closure@lore_for_collection_node\src\input_lore.rs:12:17: 12:23}>, fn(str) -> Line<'_> {parse_line}>

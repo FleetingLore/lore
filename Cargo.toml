@@ -1,4 +1,4 @@
 # 根目录 Cargo.toml（虚拟清单）
 [workspace]
-members = ["lore_for_collection", "lore_for_collection_min", "lore_for_collection_node","lore_ir"]
+members = ["lore_for_collection"]
 resolver = "3"

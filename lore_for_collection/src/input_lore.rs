@@ -1,15 +1,18 @@
-use std::fs;
 use std::path::Path;
+use std::fs;
+use crate::line::Line;
 
-pub fn input_lore_file_with_file_name(input_lore_file_path: &str) -> String {
-    fs::read_to_string(input_lore_file_path).unwrap()
+// 根据文件路径获取文件
+pub fn input_lore_file(path: &Path) -> String {
+    fs::read_to_string(path).unwrap()
 }
 
-// 提取文件名（不含路径和扩展名）
-pub fn extract_filename(path: &str) -> String {
-    Path::new(path)
-        .file_stem()
-        .and_then(|s| s.to_str())
-        .unwrap_or("local")
-        .to_string()
+// 把文件分成一行一行的然后去除空行
+pub fn parse(input: String) -> Vec<Line> {
+    input
+        .as_str()
+        .split('\n')
+        .filter(|line| !line.trim().is_empty())
+        .map(crate::parser::parse_line)
+        .collect()
 }
