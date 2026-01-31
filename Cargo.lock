@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "lore_for_collection_min"
+name = "lore_for_collection"
 version = "0.1.0"
