@@ -14,7 +14,7 @@ pub fn output_html(title: &str, lines: Vec<Line>, path: &Path) {
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{}</title>
-<styles>
+<style>
 /* 全局样式重置：统一浏览器默认样式，消除边距、内边距差异 */
 * {{
     margin: 0;
@@ -57,7 +57,7 @@ a:active {{
     color: #084298; /* 更深的蓝色，强化点击反馈 */
 }}
 
-</styles>
+</style>
 </head>
 <body>
 "##,
