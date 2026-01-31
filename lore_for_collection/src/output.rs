@@ -82,7 +82,7 @@ fn line_to_html(line: &Line) -> String {
         // 原子
         Content::Atom(atom) => {
             format!(
-                r#"<p style="margin-left: {}">{}</p>"#,
+                r#"<p style="margin-left: {}px">{}</p>"#,
                 margin_left,
                 atom
             )
@@ -91,7 +91,7 @@ fn line_to_html(line: &Line) -> String {
         // 链接
         Content::Link(key, value) => {
             format!(
-                r#"<p style="margin-left: {}"><a href="{}" target="_blank">{}</a></p>"#,
+                r#"<p style="margin-left: {}px"><a href="{}" target="_blank">{}</a></p>"#,
                 margin_left,
                 value,
                 key
@@ -101,7 +101,7 @@ fn line_to_html(line: &Line) -> String {
         // 领域
         Content::Domain(domain) => {
             format!(
-                r#"<p style="margin-left: {}"><strong>+ {}</strong></p>"#,
+                r#"<p style="margin-left: {}px"><strong>+ {}</strong></p>"#,
                 margin_left,
                 domain
             )
