@@ -42,21 +42,3 @@ this is an example file
       + and more
         ...
 ```
-
-## How to use
-
-Download `lfc.exe` on your Windows pc. Optionally you can try to test the example file.
-
-<img width="1024" height="729" alt="image" src="https://github.com/user-attachments/assets/c1e7605d-5c0b-4e62-89fe-c5f4f6a6d7b8" />
-
-Open your terminal software and type in this format
-
-```ps1
-PS ...> ./lfc.exe test.lore test.html
-```
-
-Then display the target with an HTML page tool.
-
-<img width="1023" height="619" alt="image" src="https://github.com/user-attachments/assets/4700cd8d-9e03-4fe2-9cbe-c1e1bffb9f31" />
-
-I'm getting to make it better.
